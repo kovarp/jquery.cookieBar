@@ -1,0 +1,29 @@
+{
+  "name": "jquery.cookiebar",
+  "version": "1.0.0",
+  "description": "Simple jQuery plugin for add information bar about cookies using.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovarp/jquery.cookieBar.git"
+  },
+  "keywords": [
+    "jquery",
+    "cookie",
+    "bar",
+    "eu",
+    "law",
+    "alert",
+    "sass",
+    "scss"
+  ],
+  "author": "Pavel Kovář <pavel@pavelkovar.cz> (http://www.pavelkovar.cz/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kovarp/jquery.cookieBar/issues"
+  },
+  "homepage": "https://github.com/kovarp/jquery.cookieBar#readme"
+}
