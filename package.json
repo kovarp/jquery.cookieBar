@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/kovarp/jquery.cookieBar/issues"
   },
-  "homepage": "https://github.com/kovarp/jquery.cookieBar#readme"
+  "homepage": "https://github.com/kovarp/jquery.cookieBar#readme",
+  "dependencies": {
+    "jquery": "1.9.1 - 3"
+  }
 }
