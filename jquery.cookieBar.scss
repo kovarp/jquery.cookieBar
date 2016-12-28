@@ -1,0 +1,80 @@
+/*!
+ * Cookie Bar component (https://github.com/kovarp/jquery.cookieBar)
+ * Version 1.0.0
+ *
+ * Copyright 2016 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
+ * Licensed under MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
+ */
+
+/* Settings */
+$brand-primary: #0275d8 !default;
+$cb-background: #000 !default;
+$cb-color: #fff !default;
+$cb-btn-color: $cb-color !default;
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+
+/* Cookie Bar styles */
+.cookie-bar {
+  &__inner {
+    background-color: $cb-background;
+    color: $cb-color;
+    font-family: $font-family-base;
+    font-size: .875rem;
+    padding: .375rem .5rem;
+    text-align: center;
+
+    @media (min-width: 48rem) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // Buttons wrapper
+  &__buttons {
+    display: block;
+    margin-top: .375rem;
+
+    @media (min-width: 48rem) {
+      display: inline;
+      margin-top: 0;
+    }
+  }
+
+  // Accept button
+  &__btn {
+    background-color: $brand-primary;
+    color: $cb-btn-color;
+    border: none;
+    margin: 0 .875rem;
+    padding: .125rem .875rem;
+    transition: background-color .3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($brand-primary, 5%);
+    }
+
+    &:active {
+      background-color: darken($brand-primary, 7%);
+    }
+  }
+
+  a {
+    color: $cb-color;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/* Cookie Bar layouts */
+.cookie-bar--bottom {
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

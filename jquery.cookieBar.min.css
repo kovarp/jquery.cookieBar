@@ -1,0 +1,7 @@
+/*!
+ * Cookie Bar component (https://github.com/kovarp/jquery.cookieBar)
+ * Version 1.0.0
+ *
+ * Copyright 2016 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
+ * Licensed under MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
+ */.cookie-bar__inner{background-color:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:.875rem;padding:.375rem .5rem;text-align:center}@media (min-width:48rem){.cookie-bar__inner{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}}.cookie-bar__buttons{display:block;margin-top:.375rem}@media (min-width:48rem){.cookie-bar__buttons{display:inline;margin-top:0}}.cookie-bar__btn{background-color:#0275d8;color:#fff;border:none;margin:0 .875rem;padding:.125rem .875rem;-webkit-transition:background-color .3s;transition:background-color .3s;cursor:pointer}.cookie-bar__btn:hover{background-color:#0267bf}.cookie-bar__btn:active{background-color:#0262b5}.cookie-bar a{color:#fff;text-decoration:underline}.cookie-bar a:hover{text-decoration:none}.cookie-bar--bottom{z-index:100;position:fixed;right:0;bottom:0;left:0}
