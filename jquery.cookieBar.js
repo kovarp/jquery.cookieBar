@@ -25,7 +25,7 @@ if (typeof jQuery === 'undefined') {
 	var translation = [];
 
 	translation['en'] = {
-		message:	'To provide services we use cookies. By using this site you agree.',
+		message:	'We use cookies to provide our services. By using this website, you agree to this.',
 		acceptText:	'OK',
 		infoText:	'More information'
 	};
