@@ -1,5 +1,5 @@
 # jquery.cookieBar plugin
-[Go to demo page](http://cookiebar.pavelkovar.cz/)
+[Go to demo page](https://cookiebar.pavelkovar.cz/)
 
 ## Introduction
 
