@@ -1,6 +1,6 @@
 /*!
  * Cookie Bar component (https://github.com/kovarp/jquery.cookieBar)
- * Version 1.1
+ * Version 1.1.1
  *
  * Copyright 2018 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
  * @license: MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
