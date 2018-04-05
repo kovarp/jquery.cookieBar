@@ -12,7 +12,7 @@ The simplest ways to download and install this plugin.
 ###Step 1: Install
 
 #### Via bower
-`$ bower install kovarp/jquery.cookiebar`
+`$ npm i kovarp-jquery-cookiebar`
 
 #### Clone repository
 `$ git clone https://github.com/kovarp/jquery.cookieBar`
