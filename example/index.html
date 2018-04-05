@@ -123,7 +123,7 @@ $(function() {
 
 		<pre class="bg-faded">
 default: 'top'
-options: 'top', 'bottom'</pre>
+options: 'top', 'bottom', 'bottom-left', 'bottom-right'</pre>
 
 		<p>
 			<strong>wrapper</strong> - Wrapper, where the cookie bar will prepended
@@ -222,7 +222,13 @@ $(function() {
 		});
 
 		// Just example purpose
-		var style = 'top';
+		var style = 0;
+		var styles = [
+			'top',
+			'bottom',
+			'bottom-left',
+			'bottom-right'
+		];
 
 		$(function() {
 			$('#reload-cookies').on('click', function() {
@@ -235,14 +241,15 @@ $(function() {
 			$('#toggle-style').on('click', function() {
 				$('#cookie-bar').remove();
 
-				if(style === 'top') {
-					style = 'bottom';
-				} else {
-					style = 'top';
-				}
 				$.cookieBar({
-					style: style
+					style: styles[style]
 				});
+
+				style++;
+
+				if ( style >= styles.length ) {
+					style = 0;
+				}
 			});
 		});
 	</script>

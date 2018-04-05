@@ -61,7 +61,7 @@ $(function() {
 **style** - Define style of display cookie bar on page
 ```
 default: 'top'
-options: 'top', 'bottom'
+options: 'top', 'bottom', 'bottom-left', 'bottom-right'
 ```
 
 **wrapper** - Wrapper, where the cookie bar will prepended

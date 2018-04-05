@@ -12,6 +12,8 @@ $cb-background: #000 !default;
 $cb-color: #fff !default;
 $cb-btn-color: $cb-color !default;
 $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$grid-gutter-width: 1.875rem !default;
+$bottom-style-offset: ($grid-gutter-width / 2) !default;
 
 /* Cookie Bar styles */
 .cookie-bar__inner {
@@ -69,10 +71,48 @@ $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helve
 }
 
 /* Cookie Bar layouts */
+.cookie-bar--bottom-left,
+.cookie-bar--bottom-right,
 .cookie-bar--bottom {
 	z-index: 100;
 	position: fixed;
+}
+
+.cookie-bar--bottom {
 	right: 0;
 	bottom: 0;
 	left: 0;
+}
+
+.cookie-bar--bottom-left {
+	left: $bottom-style-offset;
+}
+
+.cookie-bar--bottom-right {
+	right: $bottom-style-offset;
+}
+
+.cookie-bar--bottom-right,
+.cookie-bar--bottom-left {
+	bottom: $bottom-style-offset;
+
+	@media (min-width: 48rem) {
+		width: 22.5rem;
+	}
+}
+
+.cookie-bar--bottom-right .cookie-bar__inner,
+.cookie-bar--bottom-left .cookie-bar__inner,
+.cookie-bar--bottom-right .cookie-bar__buttons,
+.cookie-bar--bottom-left .cookie-bar__buttons {
+	@media (min-width: 48rem) {
+		display: block;
+	}
+}
+
+.cookie-bar--bottom-right .cookie-bar__buttons,
+.cookie-bar--bottom-left .cookie-bar__buttons {
+	@media (min-width: 48rem) {
+		margin-top: .375rem;
+	}
 }
