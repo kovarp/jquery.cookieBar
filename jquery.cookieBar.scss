@@ -7,7 +7,7 @@
  */
 
 /* Settings */
-$brand-primary: #0275d8 !default;
+$primary: #0275d8 !default;
 $cb-background: #000 !default;
 $cb-color: #fff !default;
 $cb-btn-color: $cb-color !default;
@@ -43,7 +43,7 @@ $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helve
 
   // Accept button
   &__btn {
-    background-color: $brand-primary;
+    background-color: $primary;
     color: $cb-btn-color;
     border: none;
     margin: 0 .875rem;
@@ -52,11 +52,11 @@ $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helve
     cursor: pointer;
 
     &:hover {
-      background-color: darken($brand-primary, 5%);
+      background-color: darken($primary, 5%);
     }
 
     &:active {
-      background-color: darken($brand-primary, 7%);
+      background-color: darken($primary, 7%);
     }
   }
 
