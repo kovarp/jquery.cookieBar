@@ -63,7 +63,7 @@ if (typeof jQuery === 'undefined') {
 
 			config = $.extend(defaults, options);
 
-			if(methods.getCookie('cookies-state') != 'accepted') {
+			if(methods.getCookie('cookies-state') !== 'accepted') {
 				methods.displayBar();
 			}
 
@@ -106,11 +106,11 @@ if (typeof jQuery === 'undefined') {
 			for(var i = 0; i <ca.length; i++) {
 				var c = ca[i];
 
-				while (c.charAt(0) == ' ') {
+				while (c.charAt(0) === ' ') {
 					c = c.substring(1);
 				}
 
-				if (c.indexOf(name) == 0) {
+				if (c.indexOf(name) === 0) {
 					return c.substring(name.length, c.length);
 				}
 			}

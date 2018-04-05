@@ -226,7 +226,7 @@ $(function() {
 
 		$(function() {
 			$('#reload-cookies').on('click', function() {
-				if($.cookieBar('getCookie', 'cookies-state') == 'accepted') {
+				if($.cookieBar('getCookie', 'cookies-state') === 'accepted') {
 					$.cookieBar('setCookie', 'cookies-state', '', 0);
 					$.cookieBar('displayBar');
 				}
@@ -235,7 +235,7 @@ $(function() {
 			$('#toggle-style').on('click', function() {
 				$('#cookie-bar').remove();
 
-				if(style == 'top') {
+				if(style === 'top') {
 					style = 'bottom';
 				} else {
 					style = 'top';
