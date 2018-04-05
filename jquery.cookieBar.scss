@@ -14,67 +14,65 @@ $cb-btn-color: $cb-color !default;
 $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 
 /* Cookie Bar styles */
-.cookie-bar {
-  &__inner {
-    background-color: $cb-background;
-    color: $cb-color;
-    font-family: $font-family-base;
-    font-size: .875rem;
-    padding: .375rem .5rem;
-    text-align: center;
+.cookie-bar__inner {
+	background-color: $cb-background;
+	color: $cb-color;
+	font-family: $font-family-base;
+	font-size: .875rem;
+	padding: .375rem .5rem;
+	text-align: center;
 
-    @media (min-width: 48rem) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+	@media (min-width: 48rem) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
 
-  // Buttons wrapper
-  &__buttons {
-    display: block;
-    margin-top: .375rem;
+// Buttons wrapper
+.cookie-bar__buttons {
+	display: block;
+	margin-top: .375rem;
 
-    @media (min-width: 48rem) {
-      display: inline;
-      margin-top: 0;
-    }
-  }
+	@media (min-width: 48rem) {
+		display: inline;
+		margin-top: 0;
+	}
+}
 
-  // Accept button
-  &__btn {
-    background-color: $primary;
-    color: $cb-btn-color;
-    border: none;
-    margin: 0 .875rem;
-    padding: .125rem .875rem;
-    transition: background-color .3s;
-    cursor: pointer;
+// Accept button
+.cookie-bar__btn {
+	background-color: $primary;
+	color: $cb-btn-color;
+	border: none;
+	margin: 0 .875rem;
+	padding: .125rem .875rem;
+	transition: background-color .3s;
+	cursor: pointer;
 
-    &:hover {
-      background-color: darken($primary, 5%);
-    }
+	&:hover {
+		background-color: darken($primary, 5%);
+	}
 
-    &:active {
-      background-color: darken($primary, 7%);
-    }
-  }
+	&:active {
+		background-color: darken($primary, 7%);
+	}
+}
 
-  a {
-    color: $cb-color;
-    text-decoration: underline;
+.cookie-bar a {
+	color: $cb-color;
+	text-decoration: underline;
 
-    &:hover {
-      text-decoration: none;
-    }
-  }
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 /* Cookie Bar layouts */
 .cookie-bar--bottom {
-  z-index: 100;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
+	z-index: 100;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
