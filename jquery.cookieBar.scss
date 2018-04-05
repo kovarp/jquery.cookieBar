@@ -116,3 +116,8 @@ $bottom-style-offset: ($grid-gutter-width / 2) !default;
 		margin-top: .375rem;
 	}
 }
+
+.cookie-bar--bottom-right .cookie-bar__inner,
+.cookie-bar--bottom-left .cookie-bar__inner {
+	line-height: 1.3;
+}
