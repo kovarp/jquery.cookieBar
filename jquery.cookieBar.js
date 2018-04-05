@@ -3,7 +3,7 @@
  * Version 1.0.0
  *
  * Copyright 2018 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
- * Licensed under MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
+ * @license: MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
  */
 
 if (typeof jQuery === 'undefined') {
