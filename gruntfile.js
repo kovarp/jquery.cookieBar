@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 			sass:        {
 				dist: {
 					options: {
-						outputStyle:	'compressed'
+						outputStyle:	'expanded'
 					},
 					files:   {
 						'jquery.cookieBar.css': 'jquery.cookieBar.scss'
@@ -43,7 +43,9 @@ module.exports = function (grunt) {
 			},
 			uglify: {
 				options: {
-					preserveComments: 'some'
+					output: {
+						comments: 'some'
+					}
 				},
 				my_target: {
 					files: [{
