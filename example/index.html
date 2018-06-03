@@ -11,7 +11,7 @@
 
 	<title>jQuery Cookie bar plugin</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" href="../jquery.cookieBar.min.css">
 	<link rel="stylesheet" href="example.css">
 	<script src="https://use.fontawesome.com/aabc0bcc52.js"></script>
@@ -34,6 +34,10 @@
 
 		<p>
 			Small jQuery plugin, which adds a simple Cookie Bar with info about cookies using. Plugin is simply modified and contains clever multilingual function.
+		</p>
+
+		<p>
+			From version 1.2 this plugin supports also GDPR (privacy protection) info.
 		</p>
 
 		<hr>
@@ -168,6 +172,30 @@ options: 'ISO 639-1 Language Code'</pre>
 			<i>The default value means, that the plugin detect automatically language from html lang attribute.</i>
 		</p>
 
+		<p>
+			<strong>privacy</strong> - Show privacy protection button (GDPR)
+		</p>
+
+		<pre class="bg-faded">
+default: false
+options: false, 'popup', 'bs_modal', 'link'</pre>
+
+		<p>
+			<strong>privacyTarget</strong> - Target attribute for "privacy button link"
+		</p>
+
+		<pre class="bg-faded">
+default: '_blank'
+options: '_blank', '_self', '_parent', '_top'</pre>
+
+		<p>
+			<strong>privacyContent</strong> - Content for privacy button
+		</p>
+
+		<pre class="bg-faded">
+default: null
+options: null, 'custom HTML', 'Bootstrap modal ID', 'url'</pre>
+
 		<hr>
 
 		<h3>Languages support</h3>
@@ -177,9 +205,10 @@ options: 'ISO 639-1 Language Code'</pre>
 		<pre class="bg-faded">
 $(function() {
 	$.cookieBar('addTranslation', 'de', {
-		message: 	'Zur Bereitstellung von Diensten verwenden wir Cookies. Durch die Nutzung dieser Website stimmen Sie zu.',
+		message:	'Zur Bereitstellung von Diensten verwenden wir Cookies. Durch die Nutzung dieser Website stimmen Sie zu.',
 		acceptText:	'OK',
-		infoText:	'Mehr Informationen'
+		infoText:	'Mehr Informationen',
+		privacyText:	'Datenschutz'
 	});
 });</pre>
 
@@ -212,13 +241,46 @@ $(function() {
 
 	</div>
 
+	<div id="privacyModal" class="modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Privacy protection</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, excepturi, expedita illo in
+						labore maiores modi mollitia nulla officiis perferendis quam qui quos rem repellendus
+						repudiandae sapiente temporibus velit vero!
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, excepturi, expedita illo in
+						labore maiores modi mollitia nulla officiis perferendis quam qui quos rem repellendus
+						repudiandae sapiente temporibus velit vero!
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 	<script src="../jquery.cookieBar.min.js"></script>
 
 	<script>
 		// Cookie Bar initialization
 		$(function() {
-			$.cookieBar();
+			$.cookieBar({
+				privacy: 'bs_modal',
+				privacyContent: '#privacyModal'
+			});
 		});
 
 		// Just example purpose
@@ -242,7 +304,9 @@ $(function() {
 				$('#cookie-bar').remove();
 
 				$.cookieBar({
-					style: styles[style]
+					style: styles[style],
+					privacy: 'bs_modal',
+					privacyContent: '#privacyModal'
 				});
 
 				style++;

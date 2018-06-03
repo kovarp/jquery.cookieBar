@@ -82,7 +82,7 @@ default: 'https://www.google.com/policies/technologies/cookies/'
 options: string
 ```
 
-**infoTarget** - Targer for "more info link"
+**infoTarget** - Target attribute for "more info link"
 ```
 default: '_blank'
 options: '_blank', '_self', '_parent', '_top'
@@ -94,6 +94,24 @@ default: $('html').attr('lang') || 'en'
 options: 'ISO 639-1 Language Code'
 ```
 _The default value means, that the plugin detect automatically language from html lang attribute._
+
+**privacy** - Show privacy protection button (GDPR)
+```
+default: false
+options: false, 'popup', 'bs_modal', 'link'
+```
+
+**privacyTarget** - Target attribute for "privacy button link"
+```
+default: '_blank'
+options: '_blank', '_self', '_parent', '_top'
+```
+
+**privacyContent** - Content for privacy button
+```
+default: null
+options: null, 'custom HTML', 'Bootstrap modal ID', 'url'
+```
 
 ## Languages support
 

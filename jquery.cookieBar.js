@@ -1,6 +1,6 @@
 /*!
  * Cookie Bar component (https://github.com/kovarp/jquery.cookieBar)
- * Version 1.1.3
+ * Version 1.2.0
  *
  * Copyright 2018 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
  * @license: MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
@@ -25,33 +25,38 @@ if (typeof jQuery === 'undefined') {
 	var translation = [];
 
 	translation['en'] = {
-		message:	'We use cookies to provide our services. By using this website, you agree to this.',
-		acceptText:	'OK',
-		infoText:	'More information'
+		message:     'We use cookies to provide our services. By using this website, you agree to this.',
+		acceptText:  'OK',
+		infoText:    'More information',
+		privacyText: 'Privacy protection'
 	};
 
 	translation['de'] = {
-		message:	'Zur Bereitstellung von Diensten verwenden wir Cookies. Durch die Nutzung dieser Website stimmen Sie zu.',
-		acceptText:	'OK',
-		infoText:	'Mehr Informationen'
+		message:     'Zur Bereitstellung von Diensten verwenden wir Cookies. Durch die Nutzung dieser Website stimmen Sie zu.',
+		acceptText:  'OK',
+		infoText:    'Mehr Informationen',
+		privacyText: 'Datenschutz'
 	};
 
 	translation['cs'] = {
-		message:	'K poskytování služeb využíváme soubory cookie. Používáním tohoto webu s&nbsp;tím souhlasíte.',
-		acceptText:	'V pořádku',
-		infoText:	'Více informací'
+		message:     'K poskytování služeb využíváme soubory cookie. Používáním tohoto webu s&nbsp;tím souhlasíte.',
+		acceptText:  'V pořádku',
+		infoText:    'Více informací',
+		privacyText: 'Ochrana soukromí'
 	};
 
 	translation['sk'] = {
-		message:	'Na poskytovanie služieb využívame súbory cookie. Používaním tohto webu s&nbsp;tým súhlasíte.',
-		acceptText:	'V poriadku',
-		infoText:	'Viac informácií'
+		message:     'Na poskytovanie služieb využívame súbory cookie. Používaním tohto webu s&nbsp;tým súhlasíte.',
+		acceptText:  'V poriadku',
+		infoText:    'Viac informácií',
+		privacyText: 'Ochrana súkromia'
 	};
 
 	translation['ru'] = {
-		message:	'Данный сайт использует для предоставления услуг, персонализации объявлений и анализа трафика печенье. Используя этот сайт, вы соглашаетесь.',
-		acceptText:	'Я согласен',
-		infoText:	'Больше информации'
+		message:     'Данный сайт использует для предоставления услуг, персонализации объявлений и анализа трафика печенье. Используя этот сайт, вы соглашаетесь.',
+		acceptText:  'Я согласен',
+		infoText:    'Больше информации',
+		privacyText: 'Конфиденциальность'
 	};
 
 	var methods	= {
@@ -59,12 +64,15 @@ if (typeof jQuery === 'undefined') {
 			cookieBar = '#cookie-bar';
 
 			var defaults = {
-				infoLink: 	'https://www.google.com/policies/technologies/cookies/',
-				infoTarget: '_blank',
-				wrapper:	'body',
-				expireDays:	365,
-				style: 		'top',
-				language:	$('html').attr('lang') || 'en'
+				infoLink:       'https://www.google.com/policies/technologies/cookies/',
+				infoTarget:     '_blank',
+				wrapper:        'body',
+				expireDays:     365,
+				style:          'top',
+				language:       $('html').attr('lang') || 'en',
+				privacy:        false,
+				privacyTarget:  '_blank',
+				privacyContent: null
 			};
 
 			config = $.extend(defaults, options);
@@ -80,18 +88,58 @@ if (typeof jQuery === 'undefined') {
 				methods.setCookie('cookies-state', 'accepted', config.expireDays);
 				methods.hideBar();
 			});
+
+			// Open privacy info popup
+			$(document).on('click', '[data-toggle="cookieBarPrivacyPopup"]', function(e) {
+				e.preventDefault();
+
+				methods.showPopup();
+			});
+
+			// Close privacy info popup
+			$(document).on('click', '.cookie-bar-privacy-popup, .cookie-bar-privacy-popup__dialog__close', function(e) {
+				methods.hidePopup();
+			});
+
+			$(document).on('click', '.cookie-bar-privacy-popup__dialog', function(e) {
+				e.stopPropagation();
+			});
 		},
 		displayBar : function() {
 			// Display Cookie Bar on page
 			var acceptButton = '<button type="button" class="cookie-bar__btn">' + translation[config.language].acceptText + '</button>';
-			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '">' + translation[config.language].infoText + '</a>';
-			var template = '<div id="cookie-bar" class="cookie-bar cookie-bar--' + config.style + '"><div class="cookie-bar__inner"><span class="cookie-bar__message">' + translation[config.language].message + '</span><span class="cookie-bar__buttons">' + acceptButton + infoLink + '</span></div></div>';
+			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '" class="cookie-bar__link cookie-bar__link--cookies-info">' + translation[config.language].infoText + '</a>';
+
+			var privacyButton = '';
+			if (config.privacy) {
+				if (config.privacy === 'link') {
+					privacyButton = '<a href="' + config.privacyContent + '" target="' + config.privacyTarget + '" class="cookie-bar__link cookie-bar__link--privacy-info">' + translation[config.language].privacyText + '</a>';
+				} else if (config.privacy === 'bs_modal') {
+					privacyButton = '<a href="' + config.privacyContent + '" data-toggle="modal" class="cookie-bar__link cookie-bar__link--privacy-info">' + translation[config.language].privacyText + '</a>';
+				} else if (config.privacy === 'popup') {
+					methods.renderPopup();
+					privacyButton = '<a href="#" data-toggle="cookieBarPrivacyPopup" class="cookie-bar__link cookie-bar__link--privacy-info">' + translation[config.language].privacyText + '</a>';
+				}
+			}
+
+			var template = '<div id="cookie-bar" class="cookie-bar cookie-bar--' + config.style + '"><div class="cookie-bar__inner"><span class="cookie-bar__message">' + translation[config.language].message + '</span><span class="cookie-bar__buttons">' + acceptButton + infoLink + privacyButton + '</span></div></div>';
 
 			$(config.wrapper).prepend(template);
 		},
 		hideBar : function() {
 			// Hide Cookie Bar
 			$(cookieBar).slideUp();
+		},
+		renderPopup : function() {
+			var popup = $('<div id="cookieBarPrivacyPopup" class="cookie-bar-privacy-popup cookie-bar-privacy-popup--hidden"><div class="cookie-bar-privacy-popup__dialog"><button type="button" class="cookie-bar-privacy-popup__dialog__close"></button></div></div>');
+			$('body').append(popup);
+			$('.cookie-bar-privacy-popup__dialog', popup).append(config.privacyContent);
+		},
+		showPopup : function() {
+			$('#cookieBarPrivacyPopup').removeClass('cookie-bar-privacy-popup--hidden');
+		},
+		hidePopup : function() {
+			$('#cookieBarPrivacyPopup').addClass('cookie-bar-privacy-popup--hidden');
 		},
 		addTranslation : function(lang, translate) {
 			translation[lang] = translate;
