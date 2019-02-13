@@ -59,6 +59,13 @@ if (typeof jQuery === 'undefined') {
 		privacyText: 'Конфиденциальность'
 	};
 
+	translation['pl'] = {
+		message:     'Używamy plików cookie w celu świadczenia naszych usług. Korzystając z tej strony, zgadzasz się na to.',
+		acceptText:  'Dobrze',
+		infoText:    'Więcej informacji',
+		privacyText: 'Ochrona prywatności'
+	};
+
 	var methods	= {
 		init : function(options) {
 			cookieBar = '#cookie-bar';
