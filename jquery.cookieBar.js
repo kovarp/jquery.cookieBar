@@ -84,6 +84,10 @@ if (typeof jQuery === 'undefined') {
 
 			config = $.extend(defaults, options);
 
+			if(!translation[config.language]) {
+				config.language = 'en';
+			}
+
 			if(methods.getCookie('cookies-state') !== 'accepted') {
 				methods.displayBar();
 			}
