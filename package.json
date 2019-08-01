@@ -1,6 +1,6 @@
 {
   "name": "kovarp-jquery-cookiebar",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Simple jQuery plugin for add information bar about cookies using.",
   "directories": {
     "example": "example"
