@@ -147,10 +147,12 @@ if (typeof jQuery === 'undefined') {
 			var template = '<div id="cookie-bar" class="cookie-bar cookie-bar--' + config.style + '"><div class="cookie-bar__inner"><span class="cookie-bar__message">' + translation[config.language].message + '</span><span class="cookie-bar__buttons">' + acceptButton + infoLink + privacyButton + '</span></div></div>';
 
 			$(config.wrapper).prepend(template);
+			$('body').addClass('has-cookie-bar');
 		},
 		hideBar : function() {
 			// Hide Cookie Bar
 			$(cookieBar).slideUp();
+			$('body').removeClass('has-cookie-bar');
 		},
 		renderPopup : function() {
 			var popup = $('<div id="cookieBarPrivacyPopup" class="cookie-bar-privacy-popup cookie-bar-privacy-popup--hidden"><div class="cookie-bar-privacy-popup__dialog"><button type="button" class="cookie-bar-privacy-popup__dialog__close"></button></div></div>');
