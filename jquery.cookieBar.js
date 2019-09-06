@@ -124,8 +124,10 @@ if (typeof jQuery === 'undefined') {
 			});
 		},
 		displayBar : function() {
-			if (!$.trim($(config.wrapper).html()))
+			if (!$.trim($(config.wrapper).html())) {
 				$(config.wrapper).empty();
+			}
+
 			// Display Cookie Bar on page
 			var acceptButton = '<button type="button" class="cookie-bar__btn">' + translation[config.language].acceptText + '</button>';
 			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '" class="cookie-bar__link cookie-bar__link--cookies-info">' + translation[config.language].infoText + '</a>';
