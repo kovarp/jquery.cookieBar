@@ -66,6 +66,13 @@ if (typeof jQuery === 'undefined') {
 		privacyText: 'Ochrona prywatności'
 	};
 
+	translation['es'] = {
+		message:     'Este sitio web utiliza cookies para mejorar su experiencia. Si continúas navegando, consideraremos que aceptas su uso.',
+		acceptText:  'Aceptar',
+		infoText:    'Más información',
+		privacyText: 'Protección de datos'
+	};
+
 	var methods	= {
 		init : function(options) {
 			cookieBar = '#cookie-bar';
@@ -117,6 +124,8 @@ if (typeof jQuery === 'undefined') {
 			});
 		},
 		displayBar : function() {
+			if (!$.trim($(config.wrapper).html()))
+				$(config.wrapper).empty();
 			// Display Cookie Bar on page
 			var acceptButton = '<button type="button" class="cookie-bar__btn">' + translation[config.language].acceptText + '</button>';
 			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '" class="cookie-bar__link cookie-bar__link--cookies-info">' + translation[config.language].infoText + '</a>';
@@ -154,6 +163,21 @@ if (typeof jQuery === 'undefined') {
 		},
 		addTranslation : function(lang, translate) {
 			translation[lang] = translate;
+		},
+		switchTranslation : function(lang) {
+			// Not current lang & just bar
+			if(lang !== config.language && !config.privacy) {
+				// Check loaded translation
+				if(!translation[lang]) {
+					config.language = 'en';
+				} else {
+					config.language = lang;
+				}
+				// Rebuild bar if it's visible
+				if(methods.getCookie('cookies-state') !== 'accepted') {
+					methods.displayBar();
+				}
+			}
 		},
 		setCookie : function(cname, cvalue, exdays) {
 			// Helpful method for set cookies
