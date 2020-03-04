@@ -55,13 +55,6 @@
   cursor: pointer;
 }
 
-@media (max-width: 36rem) {
-  .cookie-bar__btn {
-    display: block;
-    margin: 0 auto .25rem;
-  }
-}
-
 .cookie-bar__btn:hover {
   background-color: #0267bf;
 }

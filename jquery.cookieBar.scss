@@ -52,11 +52,6 @@ $bottom-style-offset: ($grid-gutter-width / 2) !default;
 	transition: background-color .3s;
 	cursor: pointer;
 
-	@media (max-width: 36rem) {
-		display: block;
-		margin: 0 auto .25rem;
-	}
-
 	&:hover {
 		background-color: darken($primary, 5%);
 	}
