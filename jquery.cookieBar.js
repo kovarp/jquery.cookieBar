@@ -1,6 +1,6 @@
 /*!
  * Cookie Bar component (https://github.com/kovarp/jquery.cookieBar)
- * Version 1.2.4
+ * Version 1.2.5
  *
  * Copyright 2020 Pavel Kovář - Frontend developer [www.pavelkovar.cz]
  * @license: MIT (https://github.com/kovarp/jquery.cookieBar/blob/master/LICENSE)
@@ -57,6 +57,13 @@ if (typeof jQuery === 'undefined') {
 		acceptText:  'Я согласен',
 		infoText:    'Больше информации',
 		privacyText: 'Конфиденциальность'
+	};
+
+	translation['ua'] = {
+		message:     'Ми використовуємо файли cookies для надання послуг. Використовуючи наш сайт, ви погоджуєтесь на це.',
+		acceptText:  'Гаразд',
+		infoText:    'Більше інформації',
+		privacyText: 'Захист конфіденційності'
 	};
 
 	translation['pl'] = {
