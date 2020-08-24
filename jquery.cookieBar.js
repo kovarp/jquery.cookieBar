@@ -171,7 +171,7 @@ if (typeof jQuery === 'undefined') {
 			$('body').removeClass('has-cookie-bar');
 
 			if (config.style === 'bottom') {
-				$(config.wrapper).css('padding-bottom');
+				$(config.wrapper).css('padding-bottom', '');
 			}
 		},
 		renderPopup : function() {
