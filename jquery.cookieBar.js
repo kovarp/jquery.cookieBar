@@ -153,13 +153,26 @@ if (typeof jQuery === 'undefined') {
 
 			var template = '<div id="cookie-bar" class="cookie-bar cookie-bar--' + config.style + '"><div class="cookie-bar__inner"><span class="cookie-bar__message">' + translation[config.language].message + '</span><span class="cookie-bar__buttons">' + acceptButton + infoLink + privacyButton + '</span></div></div>';
 
-			$(config.wrapper).prepend(template);
+			if (config.style === 'top') {
+				$(config.wrapper).prepend(template);
+			} else {
+				$(config.wrapper).append(template);
+			}
+
 			$('body').addClass('has-cookie-bar');
+
+			if (config.style === 'bottom') {
+				$(config.wrapper).css('padding-bottom', $('#cookie-bar').outerHeight());
+			}
 		},
 		hideBar : function() {
 			// Hide Cookie Bar
 			$(cookieBar).slideUp();
 			$('body').removeClass('has-cookie-bar');
+
+			if (config.style === 'bottom') {
+				$(config.wrapper).css('padding-bottom');
+			}
 		},
 		renderPopup : function() {
 			var popup = $('<div id="cookieBarPrivacyPopup" class="cookie-bar-privacy-popup cookie-bar-privacy-popup--hidden"><div class="cookie-bar-privacy-popup__dialog"><button type="button" class="cookie-bar-privacy-popup__dialog__close"></button></div></div>');
