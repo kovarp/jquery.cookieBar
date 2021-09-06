@@ -137,7 +137,7 @@ if (typeof jQuery === 'undefined') {
 
 			// Display Cookie Bar on page
 			var acceptButton = '<button type="button" class="cookie-bar__btn">' + translation[config.language].acceptText + '</button>';
-			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '" class="cookie-bar__link cookie-bar__link--cookies-info">' + translation[config.language].infoText + '</a>';
+			var infoLink = '<a href="' + config.infoLink + '" target="' + config.infoTarget + '" ' + ((config.infoTarget === '_blank')? 'rel="noopener"' : '') +' class="cookie-bar__link cookie-bar__link--cookies-info">' + translation[config.language].infoText + '</a>';
 
 			var privacyButton = '';
 			if (config.privacy) {
