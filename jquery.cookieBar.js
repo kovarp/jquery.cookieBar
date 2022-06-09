@@ -166,8 +166,13 @@ if (typeof jQuery === 'undefined') {
 			}
 		},
 		hideBar : function() {
-			// Hide Cookie Bar
-			$(cookieBar).slideUp();
+			// Hide Cookie Bar - Use animation if available
+			if ( typeof $.fn.slideUp !== 'undefined') {
+				$(cookieBar).slideUp();
+			} else {
+				$(cookieBar).css({"display":"none"});
+			}
+
 			$('body').removeClass('has-cookie-bar');
 
 			if (config.style === 'bottom') {
